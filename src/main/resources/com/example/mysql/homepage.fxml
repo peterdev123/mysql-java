@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="375.0" prefWidth="436.0" style="-fx-background-color: #ff4500;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <TextField fx:id="txtNewName" promptText="New Username">
+                    <font>
+                        <Font size="18.0" />
+                    </font></TextField>
+                <Button fx:id="btnsetNewUsername" mnemonicParsing="false" onAction="#setNewUsername" style="-fx-background-color: #27200d;" text="INPUT NEW USERNAME" textFill="ORANGERED">
+                    <font>
+                        <Font name="Georgia Bold" size="18.0" />
+                    </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <PasswordField fx:id="txtNewPassword" promptText="New Password">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </PasswordField>
+                <Button fx:id="setNewPassword" mnemonicParsing="false" onAction="#setNewPassword" style="-fx-background-color: #27200d;" text="INPUT NEW PASSWORD" textFill="ORANGERED">
+                    <font>
+                        <Font name="Georgia Bold" size="18.0" />
+                    </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Label fx:id="txtUpdate" textFill="#27200d">
+               <font>
+                  <Font name="Georgia Bold" size="18.0" />
+               </font></Label>
+                <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#onDeleteAccount" style="-fx-background-color: #27200d;" text="DELETE ACCOUNT" textFill="ORANGERED">
+                    <font>
+                        <Font name="Georgia Bold" size="18.0" />
+                    </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

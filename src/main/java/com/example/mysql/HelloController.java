@@ -5,9 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -22,16 +20,13 @@ public class HelloController {
 
     public VBox pnLogin;
 
-    public Button pnLogout;
+    public Label txtCheck, txtUpdate;
 
-    public ColorPicker cpPicker;
+    public Button btnLogin, btnSignUp;
 
-    public Button btnLogin;
+    public static int LogedUser;
 
-    public AnchorPane login, logout;
-
-//    private static final String[] allUsernames = {"user1", "user2", "user3"};
-//    private static final String[] allPassword = {"pass1", "pass2", "pass3"};
+    public TextField txtNewName, txtNewPassword;
 
     @FXML
     private TextField txtUser;
@@ -39,7 +34,6 @@ public class HelloController {
     private PasswordField txtPass;
     @FXML
     protected void onLoginClick() throws IOException {
-        boolean isValid = false;
         String username = txtUser.getText();
         String password = txtPass.getText();
 
@@ -51,14 +45,6 @@ public class HelloController {
 //        } catch (IOException e) {
 //        }
 
-//        boolean isValid = false;
-//        for (int i = 0; i < allUsernames.length; i++) {
-//            if (username.equals(allUsernames[i]) && password.equals(allPassword[i])) {
-//                isValid = true;
-//                break;
-//            }
-//        }
-
         try (Connection c = MySQLConnection.getConnection();
              PreparedStatement statement = c.prepareStatement(
                      "SELECT * FROM users WHERE name = ? AND password = ?")) {
@@ -68,31 +54,28 @@ public class HelloController {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                int userId = resultSet.getInt("id");
-                int LogedUser = userId;
-                isValid = true;
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-//                Parent root = loader.load();
-//                Stage stage = new Stage();
-//                stage.setScene(new Scene(root));
-//                stage.show();
+                LogedUser = resultSet.getInt("id");
+
+                Stage loginStage = (Stage) txtUser.getScene().getWindow();
+                loginStage.close();
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("homepage.fxml"));
+                try {
+                    Parent root = loader.load();
+                    Stage newStage = new Stage();
+                    newStage.setScene(new Scene(root));
+                    newStage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-//            else {
-//                actionTarget.setText("Make an account, or Incorrect username or password!.");
-//            }
+            else {
+                txtCheck.setText("Make an account, or Incorrect username or password!.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-
-        if (isValid) {
-            AnchorPane p = (AnchorPane) pnLogin.getParent();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        }
     }
 
 //    @FXML
@@ -149,30 +132,32 @@ public class HelloController {
 
     @FXML
     private void setNewUsername() {
-//        int currentUserId = HelloApplication.LogedUser;
-//        String newUsername = nameNewName.getText();
-//
-//        UpdateData updateData = new UpdateData();
-//        try {
-//            updateData.updateUsername(currentUserId, newUsername);
-//            System.out.println("New username set successfully!");
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        int currentUserId = LogedUser;
+        String newUsername = txtNewName.getText();
+
+        UpdateData updateData = new UpdateData();
+        try {
+            updateData.updateUsername(currentUserId, newUsername);
+            System.out.println("New username set successfully!");
+            txtUpdate.setText("Username set successfully!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void setNewPassword() {
-//        int currentUserId = HelloApplication.LogedUser;
-//        String newPassword = psNewPassword.getText();
-//
-//        UpdateData updateData = new UpdateData();
-//        try {
-//            updateData.updatePassword(currentUserId, newPassword);
-//            System.out.println("New password set successfully!");
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        int currentUserId = LogedUser;
+        String newPassword = txtNewPassword.getText();
+
+        UpdateData updateData = new UpdateData();
+        try {
+            updateData.updatePassword(currentUserId, newPassword);
+            System.out.println("New password set successfully!");
+            txtUpdate.setText("Password set successfully!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
