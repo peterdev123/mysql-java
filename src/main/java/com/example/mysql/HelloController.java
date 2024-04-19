@@ -20,13 +20,13 @@ public class HelloController {
 
     public VBox pnLogin;
 
-    public Label txtCheck, txtUpdate;
+    public Label txtCheck, txtUpdate, statusLabel;
 
     public Button btnLogin, btnSignUp, btnReturn;
 
     public static int LogedUser;
 
-    public TextField txtNewName, txtNewPassword;
+    public TextField txtNewName, txtNewPassword, txtUsernameField, txtPasswordField, txtConfirmPasswordField;
 
     @FXML
     private TextField txtUser;
@@ -68,6 +68,48 @@ public class HelloController {
             e.printStackTrace();
         }
 
+    }
+
+    @FXML
+    protected void onSignUpClick() throws IOException {
+        Stage loginStage = (Stage) txtUser.getScene().getWindow();
+        loginStage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("signup-view.fxml"));
+        try {
+            Parent root = loader.load();
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void onRegisterClick() throws IOException {
+        String username = txtUsernameField.getText();
+        String password = txtPasswordField.getText();
+        String confirmPassword = txtConfirmPasswordField.getText();
+
+        if (!confirmPassword.equals(password)) {
+            statusLabel.setText("Confirm Password does not equal to Password");
+            return;
+        }
+
+        InsertData.insertRegisterData(username, password);
+        Stage signUpStage = (Stage) txtUsernameField.getScene().getWindow();
+        signUpStage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        try {
+            Parent root = loader.load();
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 //    @FXML

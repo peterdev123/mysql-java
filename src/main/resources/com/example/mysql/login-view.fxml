@@ -54,7 +54,7 @@
                <Cursor fx:constant="HAND" />
             </cursor>
             </Button>
-         <Button fx:id="btnSignUp" mnemonicParsing="false" style="-fx-background-color: #ff4500;" text="Sign up" textFill="#27200d">
+         <Button fx:id="btnSignUp" onAction="#onSignUpClick" mnemonicParsing="false" style="-fx-background-color: #ff4500;" text="Sign up" textFill="#27200d">
             <font>
                <Font name="Georgia Bold" size="18.0" />
             </font>
