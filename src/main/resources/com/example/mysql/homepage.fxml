@@ -17,6 +17,11 @@
                     <font>
                         <Font size="18.0" />
                     </font></TextField>
+                <PasswordField fx:id="txtNewPassword" promptText="New Password">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </PasswordField>
                 <Button fx:id="btnsetNewUsername" mnemonicParsing="false" onAction="#setNewUsername" style="-fx-background-color: #27200d;" text="INPUT NEW USERNAME" textFill="ORANGERED">
                     <font>
                         <Font name="Georgia Bold" size="18.0" />
@@ -24,11 +29,6 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-                <PasswordField fx:id="txtNewPassword" promptText="New Password">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </PasswordField>
                 <Button fx:id="setNewPassword" mnemonicParsing="false" onAction="#setNewPassword" style="-fx-background-color: #27200d;" text="INPUT NEW PASSWORD" textFill="ORANGERED">
                     <font>
                         <Font name="Georgia Bold" size="18.0" />
@@ -48,6 +48,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                 </Button>
+            <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#returnLogin" style="-fx-background-color: #27200d;" text="RETURN" textFill="ORANGERED">
+               <font>
+                  <Font name="Georgia Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
             </children>
         </VBox>
     </children>

@@ -22,7 +22,7 @@ public class HelloController {
 
     public Label txtCheck, txtUpdate;
 
-    public Button btnLogin, btnSignUp;
+    public Button btnLogin, btnSignUp, btnReturn;
 
     public static int LogedUser;
 
@@ -36,14 +36,6 @@ public class HelloController {
     protected void onLoginClick() throws IOException {
         String username = txtUser.getText();
         String password = txtPass.getText();
-
-//        try {
-//            BufferedWriter bw = new BufferedWriter(new FileWriter(getClass().getResource("user1.css").getPath(), true));
-//            bw.write(".root { -fx-background-color: #ff4500 }");
-//            bw.newLine();
-//            bw.close();
-//        } catch (IOException e) {
-//        }
 
         try (Connection c = MySQLConnection.getConnection();
              PreparedStatement statement = c.prepareStatement(
@@ -113,21 +105,8 @@ public class HelloController {
 //    }
     @FXML
     private void onDeleteAccount() {
-    //    try (Connection c = MySqlConnection.getConnection();
-    //         PreparedStatement preparedStatement = c.prepareStatement(
-    //                 "DELETE FROM users WHERE id = ?")) {
-    //
-    //        int userIdToDelete = HelloApplication.LogedUser;
-    //
-    //        preparedStatement.setInt(1, userIdToDelete);
-    //
-    //        int rowsDeleted = preparedStatement.executeUpdate();
-    //        if (rowsDeleted > 0) {
-    //            System.out.println("Data deleted succesfully!");
-    //        }
-    //    } catch (SQLException e) {
-    //        e.printStackTrace();
-    //    }
+        DeleteData.deleteAccount(LogedUser);
+        txtUpdate.setText("Account Deleted!");
     }
 
     @FXML
@@ -156,6 +135,21 @@ public class HelloController {
             System.out.println("New password set successfully!");
             txtUpdate.setText("Password set successfully!");
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void returnLogin() throws IOException {
+        Stage homepageStage = (Stage) btnReturn.getScene().getWindow();
+        homepageStage.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        try {
+            Parent root = loader.load();
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -20,4 +20,22 @@ public class DeleteData {
             e.printStackTrace();
         }
     }
+
+    public static void deleteAccount(int id) {
+        try (Connection c = MySQLConnection.getConnection();
+             PreparedStatement preparedStatement = c.prepareStatement(
+                     "DELETE FROM users WHERE id = ?")) {
+
+            int userIdToDelete = id;
+
+            preparedStatement.setInt(1, userIdToDelete);
+
+            int rowsDeleted = preparedStatement.executeUpdate();
+            if (rowsDeleted > 0) {
+                System.out.println("Data deleted succesfully!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
