@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="logoutBackground" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.HelloController">
+    <children>
+        <VBox fx:id="pnLogin" alignment="CENTER" prefHeight="375.0" prefWidth="436.0" spacing="20.0" style="-fx-background-color: #27200d;">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="177.0" text="WELCOME" textFill="ORANGERED">
+                <font>
+                    <Font name="Century" size="30.0" />
+                </font>
+            </Label>
+            <GridPane>
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="110.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="199.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <TextField fx:id="txtUser" style="-fx-background-color: #ff4500;" GridPane.columnIndex="1" />
+                    <PasswordField fx:id="txtPass" style="-fx-background-color: #ff4500;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label text="Username" textFill="ORANGERED">
+                        <font>
+                            <Font name="Georgia" size="18.0" />
+                        </font>
+                    </Label>
+                    <Label text="Password" textFill="ORANGERED" GridPane.rowIndex="1">
+                        <font>
+                            <Font name="Georgia" size="18.0" />
+                        </font>
+                    </Label>
+                </children>
+            </GridPane>
+            <Button fx:id="btnLogin" onAction="#onLoginClick" style="-fx-background-color: #ff4500;" text="Sign In" textFill="#27200d">
+                <font>
+                    <Font name="Georgia Bold" size="18.0" />
+                </font>
+            </Button>
+        </VBox>
+    </children>
+</AnchorPane>
