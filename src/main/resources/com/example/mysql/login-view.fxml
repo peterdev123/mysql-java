@@ -17,10 +17,11 @@
                     <Font name="Century" size="30.0" />
                 </font>
             </Label>
-         <Label fx:id="txtCheck" textFill="ORANGERED">
-            <font>
-               <Font size="16.0" />
-            </font></Label>
+            <Label fx:id="txtCheck" textFill="ORANGERED">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Label>
             <GridPane>
                 <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="110.0" />
@@ -28,18 +29,37 @@
                 </columnConstraints>
                 <rowConstraints>
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="20.0" prefHeight="30.0" />
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 </rowConstraints>
                 <children>
-                    <TextField fx:id="txtUser" style="-fx-background-color: #ff4500;" GridPane.columnIndex="1" />
-                    <PasswordField fx:id="txtPass" style="-fx-background-color: #ff4500;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField
+                            fx:id="txtUser"
+                            promptText="Input Username"
+                            style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;"
+                            GridPane.columnIndex="1"
+                    >
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </TextField>
+                    <PasswordField
+                            fx:id="txtPass"
+                            promptText="Input Password"
+                            style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="2"
+                    >
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </PasswordField>
                     <Label text="Username" textFill="ORANGERED">
                         <font>
                             <Font name="Georgia" size="18.0" />
                         </font>
                     </Label>
-                    <Label text="Password" textFill="ORANGERED" GridPane.rowIndex="1">
+                    <Label text="Password" textFill="ORANGERED" GridPane.rowIndex="2">
                         <font>
                             <Font name="Georgia" size="18.0" />
                         </font>
@@ -50,18 +70,18 @@
                 <font>
                     <Font name="Georgia Bold" size="18.0" />
                 </font>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
             </Button>
-         <Button fx:id="btnSignUp" onAction="#onSignUpClick" mnemonicParsing="false" style="-fx-background-color: #ff4500;" text="Sign up" textFill="#27200d">
-            <font>
-               <Font name="Georgia Bold" size="18.0" />
-            </font>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
+            <Button fx:id="btnSignUp" mnemonicParsing="false" onAction="#onSignUpClick" style="-fx-background-color: #ff4500;" text="Sign Up" textFill="#27200d">
+                <font>
+                    <Font name="Georgia Bold" size="18.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
         </VBox>
     </children>
 </AnchorPane>

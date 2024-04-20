@@ -22,7 +22,7 @@ public class HelloController {
 
     public Label txtCheck, txtUpdate, statusLabel;
 
-    public Button btnLogin, btnSignUp, btnReturn;
+    public Button btnLogin, btnSignUp, btnReturn, btnModifyAccount, btnAddProfile;
 
     public static int LogedUser;
 
@@ -51,7 +51,7 @@ public class HelloController {
                 Stage loginStage = (Stage) txtUser.getScene().getWindow();
                 loginStage.close();
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("homepage.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("homepage-view.fxml"));
                 try {
                     Parent root = loader.load();
                     Stage newStage = new Stage();
@@ -112,39 +112,38 @@ public class HelloController {
         }
     }
 
-//    @FXML
-//    protected void onLogoutClick() throws IOException {
-//        Color color = cpPicker.getValue();
-//        String realColor = "rgb(" +
-//                (int)(color.getRed() * 255) + ", " +
-//                (int)(color.getGreen() * 255) + ", " +
-//                (int)(color.getBlue() * 255) + ")";
-//
-//        System.out.println(color);
-//        try {
-//            BufferedWriter bw = new BufferedWriter(new FileWriter(getClass().getResource("user1.css").getPath()));
-//            bw.write(".root { -fx-background-color: #27200d; }");
-//            bw.newLine();
-//            bw.write(".button { -fx-background-color: " + realColor + " }");
-//            bw.newLine();
-//            bw.close();
-//        } catch (IOException e) {
-//        }
-//        AnchorPane p = (AnchorPane) pnLogout.getParent();
-//        Parent scene = FXMLLoader.load(getClass().getResource("login-view.fxml"));
-//        try {
-//            BufferedWriter bw = new BufferedWriter(new FileWriter(getClass().getResource("login.css").getPath()));
-//            bw.write(".root { -fx-background-color:  #27200d; }");
-//            bw.newLine();
-//            bw.close();
-//        } catch (IOException e) {
-//        }
-//        AnchorPane pe = (AnchorPane) pnLogout.getParent();
-//        pe.getScene().getStylesheets().clear();
-//        pe.getScene().getStylesheets().add(getClass().getResource("login.css").toExternalForm());
-//        pe.getChildren().clear();
-//        pe.getChildren().add(scene);
-//    }
+    @FXML
+    protected void onAddProfileClick() throws IOException {
+        Stage homepageStage = (Stage) btnModifyAccount.getScene().getWindow();
+        homepageStage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("profile-view.fxml"));
+        try {
+            Parent root = loader.load();
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void onModifyClick() throws IOException {
+        Stage homepageStage = (Stage) btnModifyAccount.getScene().getWindow();
+        homepageStage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("modify-view.fxml"));
+        try {
+            Parent root = loader.load();
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void onDeleteAccount() {
         DeleteData.deleteAccount(LogedUser);
@@ -185,7 +184,7 @@ public class HelloController {
     private void returnLogin() throws IOException {
         Stage homepageStage = (Stage) btnReturn.getScene().getWindow();
         homepageStage.close();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("homepage-view.fxml"));
         try {
             Parent root = loader.load();
             Stage newStage = new Stage();
