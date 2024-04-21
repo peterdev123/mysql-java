@@ -12,12 +12,12 @@
         <children>
             <Label text="Welcome to Your Account Settings" textFill="#ff4500">
                 <font>
-                    <Font name="Georgia Bold" size="18.0" />
+                    <Font name="Georgia Bold" size="23.0" />
                 </font>
             </Label>
             <Button fx:id="btnAddProfile" mnemonicParsing="false" onAction="#onAddProfileClick" style="-fx-background-color: #ff4500;" text="ADD PROFILE" textFill="#27200d">
                 <font>
-                    <Font name="Georgia Bold" size="18.0" />
+                    <Font name="Georgia Bold" size="15.0" />
                 </font>
                 <cursor>
                     <Cursor fx:constant="HAND" />
@@ -27,7 +27,7 @@
                <children>
                   <Button fx:id="btnEditProfile" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onEditProfileClick" style="-fx-background-color: #ff4500;" text="EDIT PROFILE" textAlignment="CENTER" textFill="#27200d">
                       <font>
-                          <Font name="Georgia Bold" size="18.0" />
+                          <Font name="Georgia Bold" size="15.0" />
                       </font>
                       <cursor>
                           <Cursor fx:constant="HAND" />
@@ -38,7 +38,7 @@
                   </Button>
                   <Button fx:id="btnViewProfile" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onViewProfileClick" style="-fx-background-color: #ff4500;" text="VIEW PROFILE" textFill="#27200d">
                       <font>
-                          <Font name="Georgia Bold" size="18.0" />
+                          <Font name="Georgia Bold" size="15.0" />
                       </font>
                       <cursor>
                           <Cursor fx:constant="HAND" />
@@ -48,7 +48,7 @@
             </HBox>
             <Button fx:id="btnModifyAccount" mnemonicParsing="false" onAction="#onModifyClick" style="-fx-background-color: #ff4500;" text="MODIFY CURRENT USER ACCOUNT" textFill="#27200d">
                 <font>
-                    <Font name="Georgia Bold" size="18.0" />
+                    <Font name="Georgia Bold" size="15.0" />
                 </font>
                 <cursor>
                     <Cursor fx:constant="HAND" />
@@ -56,7 +56,7 @@
             </Button>
             <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#onLogoutClick" style="-fx-background-color: #ff4500;" text="LOGOUT" textFill="#27200d">
                 <font>
-                    <Font name="Georgia Bold" size="18.0" />
+                    <Font name="Georgia Bold" size="15.0" />
                 </font>
                 <cursor>
                     <Cursor fx:constant="HAND" />
