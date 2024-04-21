@@ -1,8 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
+<AnchorPane onMouseEntered="#onViewProfileMouse" onMouseExited="#onViewProfileMouse" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
+    <children>
+        <VBox alignment="CENTER" layoutX="17.0" layoutY="11.0" prefHeight="470.0" prefWidth="467.0" spacing="10" style="-fx-border-color: #ffb600; -fx-border-width: 5px;" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="11.0">
+            <children>
+                <Label text="Profile Details" textFill="ORANGERED">
+                    <font>
+                        <Font name="Georgia Bold" size="24.0" />
+                    </font>
+                </Label>
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets bottom="20" left="30" right="30" top="20" />
+                    </padding>
+                    <children>
+                        <Label text="Full Name:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <font>
+                                <Font name="Georgia Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtFullName1" style="-fx-text-fill: ORANGERED; -fx-background-color: #333;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <font>
+                                <Font name="Georgia" size="15.0" />
+                            </font>
+                        </TextField>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
+                        <Label text="Email:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Georgia Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtEmail1" style="-fx-text-fill: ORANGERED; -fx-background-color: #333;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Georgia" size="15.0" />
+                            </font>
+                        </TextField>
 
+                        <Label text="Date of Birth:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="Georgia Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <DatePicker fx:id="dpDOB1" style="-fx-text-fill: ORANGERED; -fx-background-color: #333;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        </DatePicker>
+
+                        <Label text="Gender:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="Georgia Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtGender1" style="-fx-text-fill: ORANGERED; -fx-background-color: #333;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="Georgia" size="15.0" />
+                            </font>
+                        </TextField>
+
+                        <Label text="Address:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="Georgia Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtAddress1" style="-fx-text-fill: ORANGERED; -fx-background-color: #333;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="Georgia" size="15.0" />
+                            </font>
+                        </TextField>
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+                <Button minWidth="100" onAction="#onSaveProfile" style="-fx-background-color: ORANGERED;" text="Save" textFill="#27200d">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button minWidth="100" onAction="#onReturnProfile1" style="-fx-background-color: ORANGERED;" text="Return" textFill="#27200d">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

@@ -1,6 +1,5 @@
 package com.example.mysql;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +10,8 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class AppController {
     @FXML
@@ -22,11 +23,13 @@ public class AppController {
 
     public static int LogedUser;
 
-    public TextField txtNewName, txtNewPassword, txtUsernameField, txtPasswordField, txtConfirmPasswordField, txtFullName, txtEmail, txtAddress;
+    public TextField txtNewName, txtNewPassword, txtUsernameField, txtPasswordField, txtConfirmPasswordField, txtFullName, txtEmail, txtAddress
+                    , birthdate1, txtGender1, txtAddress1, txtEmail1, txtFullName1;
 
     public DatePicker dpDOB;
 
     public ComboBox cmbGender;
+    public DatePicker dpDOB1;
 
     @FXML
     private TextField txtUser;
@@ -157,17 +160,13 @@ public class AppController {
         String newUsername = txtNewName.getText();
 
         UpdateData updateData = new UpdateData();
-        try {
-            if(ReadData.isDeleted(currentUserId)) {
-                lblUpdate.setText("Account already deleted!");
-                return;
-            }
-            updateData.updateUsername(currentUserId, newUsername);
-            System.out.println("New username set successfully!");
-            lblUpdate.setText("Username set successfully!");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if(ReadData.isDeleted(currentUserId)) {
+            lblUpdate.setText("Account already deleted!");
+            return;
         }
+        updateData.updateUsername(currentUserId, newUsername);
+        System.out.println("New username set successfully!");
+        lblUpdate.setText("Username set successfully!");
     }
 
     @FXML
@@ -176,17 +175,13 @@ public class AppController {
         String newPassword = txtNewPassword.getText();
 
         UpdateData updateData = new UpdateData();
-        try {
-            if(ReadData.isDeleted(currentUserId)) {
-                lblUpdate.setText("Account already deleted!");
-                return;
-            }
-            updateData.updatePassword(currentUserId, newPassword);
-            System.out.println("New password set successfully!");
-            lblUpdate.setText("Password set successfully!");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if(ReadData.isDeleted(currentUserId)) {
+            lblUpdate.setText("Account already deleted!");
+            return;
         }
+        updateData.updatePassword(currentUserId, newPassword);
+        System.out.println("New password set successfully!");
+        lblUpdate.setText("Password set successfully!");
     }
 
     @FXML
@@ -352,13 +347,52 @@ public class AppController {
 
     @FXML
     protected void onViewProfileMouse() {
-        while (profile == null) {
-            profile = ReadData.readProfile(LogedUser);
-            lblFullName.setText(profile.getFullname());
-            lblEmail.setText(profile.getEmail());
-            lblBirthdate.setText(profile.getBirthdate());
-            lblGender.setText(profile.getGender());
-            lblAddress.setText(profile.getAddress());
+        if (lblFullName != null) {
+            while (profile == null) {
+                profile = ReadData.readProfile(LogedUser);
+                lblFullName.setText(profile.getFullname());
+                lblEmail.setText(profile.getEmail());
+                lblBirthdate.setText(profile.getBirthdate());
+                lblGender.setText(profile.getGender());
+                lblAddress.setText(profile.getAddress());
+            }
         }
+
+        if (txtFullName1 != null) {
+            while (profile == null) {
+                profile = ReadData.readProfile(LogedUser);
+                txtFullName1.setText(profile.getFullname());
+                txtEmail1.setText(profile.getEmail());
+                txtGender1.setText(profile.getGender());
+                txtAddress1.setText(profile.getAddress());
+            }
+        }
+    }
+
+    @FXML
+    protected void onReturnProfile1() {
+        Stage editProfileStage = (Stage) txtAddress1.getScene().getWindow();
+        editProfileStage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("homepage-view.fxml"));
+        try {
+            Parent root = loader.load();
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void onSaveProfile() {
+        String fullname = txtFullName1.getText();
+        String email = txtEmail1.getText();
+        Date birthdate = java.sql.Date.valueOf(dpDOB1.getValue());
+        String gender = txtGender1.getText();
+        String address = txtAddress1.getText();
+
+        UpdateData.updateProfile(LogedUser, fullname, email, birthdate, gender, address);
     }
 }
