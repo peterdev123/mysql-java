@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="415.0" prefWidth="442.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
+
+    <VBox alignment="CENTER" layoutX="60.0" layoutY="20.0" prefHeight="375.0" prefWidth="323.0" spacing="20">
+        <Label style="-fx-font-size: 24px;" text="Profile Page" textFill="ORANGERED" />
+
+        <GridPane alignment="CENTER" hgap="10" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" />
+                <ColumnConstraints hgrow="SOMETIMES" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+
+            <Label style="-fx-font-size: 16px;" text="Full Name:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtFullName" promptText="Enter your full name" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <font>
+               <Font size="16.0" />
+            </font></TextField>
+
+            <Label style="-fx-font-size: 16px;" text="Email:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtEmail" promptText="Enter your email" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+               <Font size="15.0" />
+            </font></TextField>
+
+            <Label style="-fx-font-size: 16px;" text="Date of Birth:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <DatePicker fx:id="dpDOB" prefHeight="30.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label style="-fx-font-size: 16px;" text="Gender:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbGender" prefHeight="32.0" prefWidth="219.0" promptText="Select your gender" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Male" />
+                        <String fx:value="Female" />
+                        <String fx:value="Other" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Label style="-fx-font-size: 16px;" text="Address:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <TextField fx:id="txtAddress" promptText="Enter your address" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <font>
+               <Font size="15.0" />
+            </font></TextField>
+        </GridPane>
+
+        <Button onAction="#onProfileAdd" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500;" text="Save">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button mnemonicParsing="false" onAction="#onProfileReturn" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500;" text="Return">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+    </VBox>
+
+</AnchorPane>

@@ -6,32 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="375.0" prefWidth="436.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.HelloController">
+<AnchorPane prefHeight="390.0" prefWidth="436.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
     <children>
-        <VBox
-                alignment="CENTER"
-                prefHeight="200.0"
-                prefWidth="100.0"
-                spacing="30.0"
-        AnchorPane.leftAnchor="10.0"
-        AnchorPane.rightAnchor="10.0"
-        AnchorPane.topAnchor="10.0"
-        AnchorPane.bottomAnchor="10.0"
-        >
+        <VBox alignment="CENTER" prefHeight="379.0" prefWidth="416.0" spacing="30.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <children>
             <Label text="Welcome to Your Account Settings" textFill="#ff4500">
                 <font>
                     <Font name="Georgia Bold" size="18.0" />
                 </font>
             </Label>
-            <Button
-                    fx:id="btnAddProfile"
-                    mnemonicParsing="false"
-                    onAction="#onAddProfileClick"
-                    style="-fx-background-color: #ff4500;"
-                    text="ADD PROFILE"
-                    textFill="#27200d"
-            >
+            <Button fx:id="btnAddProfile" mnemonicParsing="false" onAction="#onAddProfileClick" style="-fx-background-color: #ff4500;" text="ADD PROFILE" textFill="#27200d">
                 <font>
                     <Font name="Georgia Bold" size="18.0" />
                 </font>
@@ -39,14 +23,30 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <Button
-                    fx:id="btnModifyAccount"
-                    mnemonicParsing="false"
-                    onAction="#onModifyClick"
-                    style="-fx-background-color: #ff4500;"
-                    text="MODIFY CURRENT ACCOUNT"
-                    textFill="#27200d"
-            >
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="416.0">
+               <children>
+                  <Button fx:id="btnEditProfile" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onEditProfileClick" style="-fx-background-color: #ff4500;" text="EDIT PROFILE" textAlignment="CENTER" textFill="#27200d">
+                      <font>
+                          <Font name="Georgia Bold" size="18.0" />
+                      </font>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnViewProfile" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onViewProfileClick" style="-fx-background-color: #ff4500;" text="VIEW PROFILE" textFill="#27200d">
+                      <font>
+                          <Font name="Georgia Bold" size="18.0" />
+                      </font>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <Button fx:id="btnModifyAccount" mnemonicParsing="false" onAction="#onModifyClick" style="-fx-background-color: #ff4500;" text="MODIFY CURRENT USER ACCOUNT" textFill="#27200d">
                 <font>
                     <Font name="Georgia Bold" size="18.0" />
                 </font>
@@ -54,6 +54,19 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
+            <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#onLogoutClick" style="-fx-background-color: #ff4500;" text="LOGOUT" textFill="#27200d">
+                <font>
+                    <Font name="Georgia Bold" size="18.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Label fx:id="txtAccountStatus" textFill="ORANGERED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
         </children>
     </VBox>
 </children>

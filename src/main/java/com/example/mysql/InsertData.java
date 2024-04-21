@@ -1,8 +1,10 @@
 package com.example.mysql;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class InsertData {
     public static void main(String[] args) {
@@ -36,6 +38,49 @@ public class InsertData {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void insertProfileData(int userId, String fullname, String email, Date birthdate, String gender, String address) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connection = MySQLConnection.getConnection();
+            connection.setAutoCommit(false);
+
+            String sql = "INSERT INTO profile (id, fullname, email, birthdate, gender, address) VALUES (?, ?, ?, ?, ?, ?) ";
+
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setString(2, fullname);
+            preparedStatement.setString(3, email);
+            preparedStatement.setDate(4, birthdate);
+            preparedStatement.setString(5, gender);
+            preparedStatement.setString(6, address);
+            preparedStatement.executeUpdate();
+
+            connection.commit();
+            System.out.println("Profile created/updated successfully.");
+        } catch (SQLException e) {
+            System.out.println("Error updating profile: " + e.getMessage());
+            if (connection != null) {
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                    System.out.println("Failed to rollback: " + ex.getMessage());
+                }
+            }
+        } finally {
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) {
+                    connection.setAutoCommit(true);
+                    connection.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 }

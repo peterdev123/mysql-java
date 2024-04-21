@@ -1,9 +1,6 @@
 package com.example.mysql;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class ReadData {
     public static void main(String[] args) {
@@ -23,4 +20,39 @@ public class ReadData {
             e.printStackTrace();
         }
     }
+
+    public static boolean doesProfileExist(int userid) {
+        boolean result = false;
+        ResultSet res = null;
+        try (Connection c = MySQLConnection.getConnection();
+             PreparedStatement statement = c.prepareStatement(
+                     "SELECT * FROM profile WHERE id = ?")) {
+            statement.setInt(1, userid);
+            res = statement.executeQuery();
+            if (res.next()) {
+                result = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static boolean isDeleted(int userid) {
+        boolean result = true;
+        ResultSet res = null;
+        try (Connection c = MySQLConnection.getConnection();
+             PreparedStatement statement = c.prepareStatement(
+                     "SELECT * FROM users WHERE id = ?")) {
+            statement.setInt(1, userid);
+            res = statement.executeQuery();
+            if (res.next()) {
+                result = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }

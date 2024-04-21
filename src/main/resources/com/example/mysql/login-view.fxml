@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="logoutBackground" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.HelloController">
+<AnchorPane fx:id="logoutBackground" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
     <children>
         <VBox fx:id="pnLogin" alignment="CENTER" prefHeight="375.0" prefWidth="436.0" spacing="20.0" style="-fx-background-color: #27200d;">
             <padding>

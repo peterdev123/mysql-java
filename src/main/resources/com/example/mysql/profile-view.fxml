@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.mysql.HelloController"
-            prefHeight="375.0" prefWidth="436.0">
-
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.mysql.AppController" prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <VBox spacing="10" alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0"
+              AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <Label text="Profile Details">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="20" right="30" bottom="20" left="30"/>
+                    </padding>
+                    <children>
+                        <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtFullName" GridPane.rowIndex="0" GridPane.columnIndex="1" editable="false"/>
+                        <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtEmail" GridPane.rowIndex="1" GridPane.columnIndex="1" editable="false"/>
+                        <Label text="Date of Birth:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtBirthdate" GridPane.rowIndex="2" GridPane.columnIndex="1" editable="false"/>
+                        <Label text="Gender:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtGender" GridPane.rowIndex="3" GridPane.columnIndex="1" editable="false"/>
+                        <Label text="Address:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtAddress" GridPane.rowIndex="4" GridPane.columnIndex="1" editable="false"/>
+                    </children>
+                </GridPane>
+                <Button text="Return" onAction="#goBack" minWidth="100">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

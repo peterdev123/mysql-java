@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="375" prefWidth="436" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.HelloController">
+<AnchorPane prefHeight="375" prefWidth="436" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
     <VBox alignment="CENTER" prefHeight="375" prefWidth="436" spacing="15" style="-fx-padding: 20px;">
         <Label alignment="CENTER" style="-fx-font: bold 20px Georgia;" text="Sign Up" textFill="ORANGERED" />
         <GridPane alignment="CENTER" hgap="10" vgap="10">
@@ -52,6 +52,15 @@
 
 
         <Button onAction="#onRegisterClick" prefHeight="40" prefWidth="150" style="-fx-background-color: #ff4500; -fx-border-radius: 10px;" text="Sign Up" textFill="#27200d">
+            <font>
+                <Font name="Georgia Bold" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+
+        <Button onAction="#onRegisterReturn" prefHeight="40" prefWidth="150" style="-fx-background-color: #ff4500; -fx-border-radius: 10px;" text="Return" textFill="#27200d">
             <font>
                 <Font name="Georgia Bold" size="18.0" />
             </font>
