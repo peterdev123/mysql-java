@@ -9,7 +9,10 @@
 <AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
 
     <VBox alignment="CENTER" layoutX="15.0" layoutY="13.0" prefHeight="475.0" prefWidth="473.0" spacing="20" style="-fx-padding: 20px; -fx-border-color: #ffb600; -fx-border-width: 5px;">
-        <Label style="-fx-font-size: 24px;" text="Profile Page" textFill="ORANGERED" />
+        <Label text="Profile Page" textFill="ORANGERED">
+         <font>
+            <Font name="Georgia Bold" size="25.0" />
+         </font></Label>
 
         <GridPane alignment="CENTER" hgap="10" vgap="10">
             <columnConstraints>
@@ -24,22 +27,34 @@
                 <RowConstraints />
             </rowConstraints>
 
-            <Label style="-fx-font-size: 16px;" text="Full Name:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label text="Full Name:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <font>
+               <Font name="Georgia Bold" size="15.0" />
+            </font></Label>
             <TextField fx:id="txtFullName" promptText="Enter your full name" GridPane.columnIndex="1" GridPane.rowIndex="0">
             <font>
-               <Font size="16.0" />
+               <Font name="Georgia Bold" size="16.0" />
             </font></TextField>
 
-            <Label style="-fx-font-size: 16px;" text="Email:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Label text="Email:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <font>
+               <Font name="Georgia Bold" size="15.0" />
+            </font></Label>
             <TextField fx:id="txtEmail" promptText="Enter your email" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <font>
-               <Font size="15.0" />
+               <Font name="Georgia Bold" size="15.0" />
             </font></TextField>
 
-            <Label style="-fx-font-size: 16px;" text="Date of Birth:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label text="Date of Birth:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <font>
+               <Font name="Georgia Bold" size="15.0" />
+            </font></Label>
             <DatePicker fx:id="dpDOB" prefHeight="30.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-            <Label style="-fx-font-size: 16px;" text="Gender:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Label text="Gender:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="3">
+            <font>
+               <Font name="Georgia Bold" size="15.0" />
+            </font></Label>
             <ComboBox fx:id="cmbGender" prefHeight="32.0" prefWidth="219.0" promptText="Select your gender" GridPane.columnIndex="1" GridPane.rowIndex="3">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
@@ -50,20 +65,23 @@
                 </items>
             </ComboBox>
 
-            <Label style="-fx-font-size: 16px;" text="Address:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Label text="Address:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="4">
+            <font>
+               <Font name="Georgia Bold" size="15.0" />
+            </font></Label>
             <TextField fx:id="txtAddress" promptText="Enter your address" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <font>
-               <Font size="15.0" />
+               <Font name="Georgia Bold" size="15.0" />
             </font></TextField>
         </GridPane>
 
-        <Button onAction="#onProfileAdd" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500;" text="Save">
+        <Button onAction="#onProfileAdd" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500;" text="Save" textFill="#27200d">
          <font>
-            <Font size="18.0" />
+            <Font name="Georgia Bold" size="15.0" />
          </font></Button>
-      <Button mnemonicParsing="false" onAction="#onProfileReturn" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500;" text="Return">
+      <Button mnemonicParsing="false" onAction="#onProfileReturn" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500;" text="Return" textFill="#27200d">
          <font>
-            <Font size="18.0" />
+            <Font name="Georgia Bold" size="15.0" />
          </font>
       </Button>
     </VBox>
