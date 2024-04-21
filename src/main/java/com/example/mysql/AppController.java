@@ -1,5 +1,6 @@
 package com.example.mysql;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +16,7 @@ public class AppController {
     @FXML
     public VBox pnLogin;
 
-    public Label txtCheck, txtUpdate, statusLabel, txtAccountStatus;
+    public Label lblCheck, lblUpdate, lblStatus, lblAccoutnStatus, lblFullName, lblEmail, lblBirthdate, lblGender, lblAddress;
 
     public Button btnLogin, btnSignUp, btnReturn, btnModifyAccount, btnAddProfile, btnLogOut, btnViewProfile, btnEditProfile;
 
@@ -31,6 +32,8 @@ public class AppController {
     private TextField txtUser;
     @FXML
     private PasswordField txtPass;
+
+    Profile profile = null;
     @FXML
     protected void onLoginClick() {
         String username = txtUser.getText();
@@ -61,7 +64,7 @@ public class AppController {
                 }
             }
             else {
-                txtCheck.setText("Make an account, or Incorrect username or password!.");
+                lblCheck.setText("Make an account, or Incorrect username or password!.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -92,7 +95,7 @@ public class AppController {
         String confirmPassword = txtConfirmPasswordField.getText();
 
         if (!confirmPassword.equals(password)) {
-            statusLabel.setText("Confirm Password does not equal to Password");
+            lblStatus.setText("Confirm Password does not equal to Password");
             return;
         }
 
@@ -131,10 +134,10 @@ public class AppController {
     protected void onDeleteAccount() {
         if(!ReadData.isDeleted(LogedUser)) {
             DeleteData.deleteAccount(LogedUser);
-            txtUpdate.setText("Account Deleted!");
+            lblUpdate.setText("Account Deleted!");
             return;
         }
-        txtUpdate.setText("Account already deleted!");
+        lblUpdate.setText("Account already deleted!");
     }
 
     @FXML
@@ -156,12 +159,12 @@ public class AppController {
         UpdateData updateData = new UpdateData();
         try {
             if(ReadData.isDeleted(currentUserId)) {
-                txtUpdate.setText("Account already deleted!");
+                lblUpdate.setText("Account already deleted!");
                 return;
             }
             updateData.updateUsername(currentUserId, newUsername);
             System.out.println("New username set successfully!");
-            txtUpdate.setText("Username set successfully!");
+            lblUpdate.setText("Username set successfully!");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -175,12 +178,12 @@ public class AppController {
         UpdateData updateData = new UpdateData();
         try {
             if(ReadData.isDeleted(currentUserId)) {
-                txtUpdate.setText("Account already deleted!");
+                lblUpdate.setText("Account already deleted!");
                 return;
             }
             updateData.updatePassword(currentUserId, newPassword);
             System.out.println("New password set successfully!");
-            txtUpdate.setText("Password set successfully!");
+            lblUpdate.setText("Password set successfully!");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -272,7 +275,7 @@ public class AppController {
                 e.printStackTrace();
             }
         } else {
-            txtAccountStatus.setText("Profile already exists!");
+            lblAccoutnStatus.setText("Profile already exists!");
         }
     }
 
@@ -292,7 +295,7 @@ public class AppController {
                 e.printStackTrace();
             }
         } else {
-            txtAccountStatus.setText("Make a profile first!");
+            lblAccoutnStatus.setText("Make a profile first!");
         }
     }
 
@@ -327,7 +330,35 @@ public class AppController {
                 e.printStackTrace();
             }
         } else {
-            txtAccountStatus.setText("Make a profile first!");
+            lblAccoutnStatus.setText("Make a profile first!");
+        }
+    }
+
+    @FXML
+    protected void onReturnProfile() {
+        Stage viewProfileStage = (Stage) lblAddress.getScene().getWindow();
+        viewProfileStage.close();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("homepage-view.fxml"));
+        try {
+            Parent root = loader.load();
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void onViewProfileMouse() {
+        while (profile == null) {
+            profile = ReadData.readProfile(LogedUser);
+            lblFullName.setText(profile.getFullname());
+            lblEmail.setText(profile.getEmail());
+            lblBirthdate.setText(profile.getBirthdate());
+            lblGender.setText(profile.getGender());
+            lblAddress.setText(profile.getAddress());
         }
     }
 }

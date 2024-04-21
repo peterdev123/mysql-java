@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="390.0" prefWidth="436.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
     <children>
-        <VBox alignment="CENTER" prefHeight="379.0" prefWidth="416.0" spacing="30.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <VBox alignment="CENTER" prefHeight="480.0" prefWidth="478.0" spacing="30.0" style="-fx-padding: 20px; -fx-border-color: #ffb600; -fx-border-width: 5px;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="10.0">
         <children>
             <Label text="Welcome to Your Account Settings" textFill="#ff4500">
                 <font>
@@ -62,7 +62,7 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <Label fx:id="txtAccountStatus" textFill="ORANGERED">
+            <Label fx:id="lblAccoutnStatus" textFill="ORANGERED">
                <font>
                   <Font size="15.0" />
                </font>

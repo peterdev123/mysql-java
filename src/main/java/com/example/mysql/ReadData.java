@@ -21,6 +21,31 @@ public class ReadData {
         }
     }
 
+    public static Profile readProfile(int userid) {
+        Profile profile = null;
+        try (Connection c = MySQLConnection.getConnection();
+             PreparedStatement statement = c.prepareStatement("SELECT * FROM profile WHERE id = ?")) {
+            statement.setInt(1, userid);
+            try (ResultSet res = statement.executeQuery()) {
+                if (res.next()) {
+                    String fullName = res.getString("fullname");
+                    String email = res.getString("email");
+                    String birthdate = res.getString("birthdate");
+                    String gender = res.getString("gender");
+                    String address = res.getString("address");
+
+                    profile = new Profile(fullName, email, birthdate, gender, address);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return profile;
+    }
+
+
     public static boolean doesProfileExist(int userid) {
         boolean result = false;
         ResultSet res = null;

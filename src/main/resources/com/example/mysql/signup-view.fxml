@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="375" prefWidth="436" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
-    <VBox alignment="CENTER" prefHeight="375" prefWidth="436" spacing="15" style="-fx-padding: 20px;">
+<AnchorPane prefHeight="500" prefWidth="500" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
+    <VBox alignment="CENTER" layoutX="12.0" layoutY="13.0" prefHeight="475.0" prefWidth="477.0" spacing="15" style="-fx-padding: 20px; -fx-border-color: #ffb600; -fx-border-width: 5px;">
         <Label alignment="CENTER" style="-fx-font: bold 20px Georgia;" text="Sign Up" textFill="ORANGERED" />
         <GridPane alignment="CENTER" hgap="10" vgap="10">
             <columnConstraints>
@@ -21,30 +21,21 @@
 
             <Label style="-fx-font: 18px Georgia;" text="Username:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="0" />
 
-            <TextField fx:id="txtUsernameField"
-                       promptText="Enter your username"
-                       style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;"
-                       GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <TextField fx:id="txtUsernameField" promptText="Enter your username" style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="0">
             <font>
                <Font size="14.0" />
             </font></TextField>
 
             <Label style="-fx-font: 18px Georgia;" text="Password:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
-            <PasswordField fx:id="txtPasswordField"
-                           promptText="Enter your password"
-                           style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;"
-                           GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <PasswordField fx:id="txtPasswordField" promptText="Enter your password" style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <font>
                <Font size="14.0" />
             </font></PasswordField>
 
             <Label style="-fx-font: 18px Georgia;" text="Confirm Password:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
-            <PasswordField fx:id="txtConfirmPasswordField"
-                           promptText="Confirm your password"
-                           style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;"
-                           GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <PasswordField fx:id="txtConfirmPasswordField" promptText="Confirm your password" style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <font>
                <Font size="14.0" />
             </font></PasswordField>
@@ -69,6 +60,6 @@
             </cursor>
         </Button>
 
-        <Label fx:id="statusLabel" alignment="CENTER" style="-fx-font: 16px Georgia;" textFill="ORANGERED" wrapText="true" />
+        <Label fx:id="lblStatus" alignment="CENTER" style="-fx-font: 16px Georgia;" textFill="ORANGERED" wrapText="true" />
     </VBox>
 </AnchorPane>

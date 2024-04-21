@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="415.0" prefWidth="442.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
 
-    <VBox alignment="CENTER" layoutX="60.0" layoutY="20.0" prefHeight="375.0" prefWidth="323.0" spacing="20">
+    <VBox alignment="CENTER" layoutX="15.0" layoutY="13.0" prefHeight="475.0" prefWidth="473.0" spacing="20" style="-fx-padding: 20px; -fx-border-color: #ffb600; -fx-border-width: 5px;">
         <Label style="-fx-font-size: 24px;" text="Profile Page" textFill="ORANGERED" />
 
         <GridPane alignment="CENTER" hgap="10" vgap="10">

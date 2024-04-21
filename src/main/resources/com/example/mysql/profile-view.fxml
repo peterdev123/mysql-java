@@ -1,43 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.mysql.AppController" prefHeight="400.0" prefWidth="600.0">
+<AnchorPane onMouseEntered="#onViewProfileMouse" onMouseExited="#onViewProfileMouse" onMouseMoved="#onViewProfileMouse" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
     <children>
-        <VBox spacing="10" alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0"
-              AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <VBox alignment="CENTER" layoutX="17.0" layoutY="11.0" prefHeight="470.0" prefWidth="467.0" spacing="10" style="-fx-border-color: #ffb600; -fx-border-width: 5px;" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="11.0">
             <children>
-                <Label text="Profile Details">
+                <Label text="Profile Details" textFill="ORANGERED">
                     <font>
-                        <Font size="24.0" />
+                        <Font name="Georgia Bold" size="24.0" />
                     </font>
                 </Label>
                 <GridPane hgap="10" vgap="10">
                     <padding>
-                        <Insets top="20" right="30" bottom="20" left="30"/>
+                        <Insets bottom="20" left="30" right="30" top="20" />
                     </padding>
                     <children>
-                        <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                        <TextField fx:id="txtFullName" GridPane.rowIndex="0" GridPane.columnIndex="1" editable="false"/>
-                        <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                        <TextField fx:id="txtEmail" GridPane.rowIndex="1" GridPane.columnIndex="1" editable="false"/>
-                        <Label text="Date of Birth:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                        <TextField fx:id="txtBirthdate" GridPane.rowIndex="2" GridPane.columnIndex="1" editable="false"/>
-                        <Label text="Gender:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                        <TextField fx:id="txtGender" GridPane.rowIndex="3" GridPane.columnIndex="1" editable="false"/>
-                        <Label text="Address:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                        <TextField fx:id="txtAddress" GridPane.rowIndex="4" GridPane.columnIndex="1" editable="false"/>
+                        <Label text="Full Name:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                     <font>
+                        <Font name="Georgia Bold" size="15.0" />
+                     </font></Label>
+                        <Label fx:id="lblFullName" contentDisplay="CENTER" style="-fx-font-size: 14px;" textFill="ORANGERED" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                        <Label text="Email:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Georgia Bold" size="15.0" />
+                     </font></Label>
+                        <Label fx:id="lblEmail" style="-fx-font-size: 14px;" textFill="ORANGERED" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                        <Label text="Date of Birth:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Georgia Bold" size="15.0" />
+                     </font></Label>
+                        <Label fx:id="lblBirthdate" style="-fx-font-size: 14px;" textFill="ORANGERED" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                        <Label text="Gender:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Georgia Bold" size="15.0" />
+                     </font></Label>
+                        <Label fx:id="lblGender" style="-fx-font-size: 14px;" textFill="ORANGERED" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                        <Label text="Address:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Georgia Bold" size="15.0" />
+                     </font></Label>
+                        <Label fx:id="lblAddress" style="-fx-font-size: 14px;" textFill="ORANGERED" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
                     </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
                 </GridPane>
-                <Button text="Return" onAction="#goBack" minWidth="100">
+                <Button minWidth="100" onAction="#onReturnProfile" style="-fx-background-color: ORANGERED;" text="Return" textFill="#27200d">
                     <font>
-                        <Font size="14.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </Button>
             </children>

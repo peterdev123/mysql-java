@@ -6,112 +6,45 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane
-        prefHeight="375.0"
-        prefWidth="436.0"
-        style="-fx-background-color: #27200d;"
-        xmlns="http://javafx.com/javafx/17.0.2-ea"
-        xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="com.example.mysql.AppController"
->
+<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #27200d;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysql.AppController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
-        <VBox
-                alignment="CENTER"
-                spacing="15.0"
-                AnchorPane.leftAnchor="0.0"
-                AnchorPane.rightAnchor="0.0"
-                AnchorPane.topAnchor="0.0"
-                AnchorPane.bottomAnchor="0.0"
-        >
-            <Text
-                    text="Account Management"
-                    fill="#ff4500"
-                    style="-fx-font: bold 20px Georgia;"
-            />
-            <TextField
-                    fx:id="txtNewName"
-                    promptText="New Username"
-                    style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;"
-            >
+        <VBox alignment="CENTER" spacing="15.0" style="-fx-padding: 20px; -fx-border-color: #ffb600; -fx-border-width: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Text fill="#ff4500" style="-fx-font: bold 20px Georgia;" text="Account Management" />
+            <TextField fx:id="txtNewName" promptText="New Username" style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;">
                 <font>
                     <Font size="18.0" />
                 </font>
             </TextField>
-            <PasswordField
-                    fx:id="txtNewPassword"
-                    promptText="New Password"
-                    style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;"
-            >
+            <PasswordField fx:id="txtNewPassword" promptText="New Password" style="-fx-background-color: #333; -fx-text-fill: #ff4500; -fx-border-radius: 10px; -fx-padding: 5px;">
                 <font>
                     <Font size="18.0" />
                 </font>
             </PasswordField>
             <!-- Standardized Button Dimensions -->
-            <Button
-                    fx:id="btnsetNewUsername"
-                    mnemonicParsing="false"
-                    onAction="#setNewUsername"
-                    style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;"
-                    text="INPUT NEW USERNAME"
-                    textFill="#27200d"
-                    prefWidth="150.0"
-                    prefHeight="40.0"
-            >
+            <Button fx:id="btnsetNewUsername" mnemonicParsing="false" onAction="#setNewUsername" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;" text="INPUT NEW USERNAME" textFill="#27200d">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <Button
-                    fx:id="setNewPassword"
-                    mnemonicParsing="false"
-                    onAction="#setNewPassword"
-                    style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;"
-                    text="INPUT NEW PASSWORD"
-                    textFill="#27200d"
-                    prefWidth="150.0"
-                    prefHeight="40.0"
-            >
+            <Button fx:id="setNewPassword" mnemonicParsing="false" onAction="#setNewPassword" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;" text="INPUT NEW PASSWORD" textFill="#27200d">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <Button
-                    fx:id="btnDelete"
-                    mnemonicParsing="false"
-                    onAction="#onDeleteAccount"
-                    style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;"
-                    text="DELETE ACCOUNT"
-                    textFill="#27200d"
-                    prefWidth="150.0"
-                    prefHeight="40.0"
-            >
+            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#onDeleteAccount" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;" text="DELETE ACCOUNT" textFill="#27200d">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <Button
-                    fx:id="btnReturn"
-                    mnemonicParsing="false"
-                    onAction="#returnHomepage"
-                    style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;"
-                    text="RETURN"
-                    textFill="#27200d"
-                    prefWidth="150.0"
-                    prefHeight="40.0"
-            >
+            <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#returnHomepage" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;" text="RETURN" textFill="#27200d">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </Button>
-            <Label
-                    fx:id="txtUpdate"
-                    textFill="#ff4500"
-                    text="Status"
-                    style="-fx-font: bold 18px Georgia;"
-            />
+            <Label fx:id="lblUpdate" style="-fx-font: bold 18px Georgia;" text="Status" textFill="#ff4500" />
         </VBox>
     </children>
 </AnchorPane>
