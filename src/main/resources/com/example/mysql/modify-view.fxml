@@ -28,23 +28,35 @@
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
+            <font>
+               <Font name="Georgia" size="11.0" />
+            </font>
             </Button>
             <Button fx:id="setNewPassword" mnemonicParsing="false" onAction="#setNewPassword" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;" text="INPUT NEW PASSWORD" textFill="#27200d">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
+            <font>
+               <Font name="Georgia" size="11.0" />
+            </font>
             </Button>
             <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#onDeleteAccount" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;" text="DELETE ACCOUNT" textFill="#27200d">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
+            <font>
+               <Font name="Georgia" size="11.0" />
+            </font>
             </Button>
             <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#returnHomepage" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ff4500; -fx-border-radius: 10px; -fx-padding: 10px;" text="RETURN" textFill="#27200d">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
+            <font>
+               <Font name="Georgia" size="11.0" />
+            </font>
             </Button>
-            <Label fx:id="lblUpdate" style="-fx-font: bold 18px Georgia;" text="Status" textFill="#ff4500" />
+            <Label fx:id="lblUpdate" style="-fx-font: bold 18px Georgia;" textFill="#ff4500" />
         </VBox>
     </children>
 </AnchorPane>

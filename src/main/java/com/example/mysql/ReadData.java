@@ -1,6 +1,8 @@
 package com.example.mysql;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 public class ReadData {
     public static void main(String[] args) {
@@ -44,6 +46,23 @@ public class ReadData {
         }
         return profile;
     }
+
+    public static LocalDate getDateOfBirth(int userId) {
+        String sql = "SELECT birthdate FROM profile WHERE id = ?";
+        try (Connection c = MySQLConnection.getConnection();
+             PreparedStatement pstmt = c.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                Date date = rs.getDate("birthdate");
+                return date.toLocalDate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 
     public static boolean doesProfileExist(int userid) {

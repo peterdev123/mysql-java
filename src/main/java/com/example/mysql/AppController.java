@@ -1,5 +1,6 @@
 package com.example.mysql;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +13,7 @@ import java.io.*;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class AppController {
     @FXML
@@ -242,13 +244,6 @@ public class AppController {
         }
     }
 
-//    public void initializeHomepage() {
-//        boolean hasProfile = checkUserProfile();
-//        btnAddProfile.setVisible(!hasProfile);
-//        btnEditProfile.setVisible(hasProfile);
-//        btnViewProfile.setVisible(hasProfile);
-//    }
-
     private boolean checkUserProfile() {
         return ReadData.doesProfileExist(LogedUser);
     }
@@ -362,6 +357,8 @@ public class AppController {
             while (profile == null) {
                 profile = ReadData.readProfile(LogedUser);
                 txtFullName1.setText(profile.getFullname());
+                LocalDate dob = ReadData.getDateOfBirth(LogedUser);
+                dpDOB1.setValue(dob);
                 txtEmail1.setText(profile.getEmail());
                 txtGender1.setText(profile.getGender());
                 txtAddress1.setText(profile.getAddress());
@@ -394,5 +391,12 @@ public class AppController {
         String address = txtAddress1.getText();
 
         UpdateData.updateProfile(LogedUser, fullname, email, birthdate, gender, address);
+        onReturnProfile1();
+    }
+
+    @FXML
+    public void onDeleteProfile() {
+        DeleteData.deleteProfile(LogedUser);
+        onReturnProfile1();
     }
 }

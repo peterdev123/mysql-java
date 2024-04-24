@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -59,7 +60,6 @@
                                 <Font name="Georgia" size="15.0" />
                             </font>
                         </TextField>
-
                         <Label text="Address:" textFill="ORANGERED" GridPane.columnIndex="0" GridPane.rowIndex="4">
                             <font>
                                 <Font name="Georgia Bold" size="15.0" />
@@ -83,15 +83,29 @@
                         <RowConstraints />
                     </rowConstraints>
                 </GridPane>
-                <Button minWidth="100" onAction="#onSaveProfile" style="-fx-background-color: ORANGERED;" text="Save" textFill="#27200d">
+                <Button minWidth="150" onAction="#onSaveProfile" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: ORANGERED;" text="Save" textFill="#27200d">
                     <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="Georgia Bold" size="15.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
-                <Button minWidth="100" onAction="#onReturnProfile1" style="-fx-background-color: ORANGERED;" text="Return" textFill="#27200d">
+                <Button minWidth="150" onAction="#onDeleteProfile" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: ORANGERED;" text="Delete" textFill="#27200d">
                     <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="Georgia Bold" size="15.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+                </Button>
+                <Button minWidth="150" onAction="#onReturnProfile1" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: ORANGERED;" text="Return" textFill="#27200d">
+                    <font>
+                        <Font name="Georgia Bold" size="15.0" />
+                    </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
             </children>
         </VBox>

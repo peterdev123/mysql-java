@@ -74,7 +74,7 @@
                 </GridPane>
                 <Button minWidth="100" onAction="#onReturnProfile" style="-fx-background-color: ORANGERED;" text="Return" textFill="#27200d">
                     <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="Georgia Bold" size="18.0" />
                     </font>
                 </Button>
             </children>
